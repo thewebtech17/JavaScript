@@ -4,7 +4,7 @@ let accountPassword = "Gonu7877@#";
 let accountGmail = "Shekhawatgonu@gmail.com";
 let accountUniqueIdentification = "Gonu17";
 
-const data = [{
+let data = [{
     accountId: accountId,
     accountHolderName: accountHolderName,
     accountPassword: accountPassword,
