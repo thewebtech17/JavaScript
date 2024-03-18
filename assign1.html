@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+    <style>
+        body {
+            background: #83a4d4;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #b6fbff, #83a4d4);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .king {
+            width: 80%;
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        #n1,
+        #n2,
+        #operators,
+        #btn,
+        #result {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="king">
+        <input type="text" id="n1" placeholder="Enter first Number" />
+        <input type="text" id="n2" placeholder="Enter Second Number" />
+        <select id="operators">
+            <option value="#">Select The operation</option>
+            <option value="+">Addition</option>
+            <option value="-">Subtraction</option>
+            <option value="/">Divide</option>
+            <option value="X">Multiply</option>
+        </select>
+        <button onclick="calculation();" id="btn">=</button>
+        <input type="text" id="result" placeholder="Result is..." />
+    </div>
+
+    <script>
+        function calculation() {
+            var n1 = parseInt(document.getElementById('n1').value);
+            var n2 = parseInt(document.getElementById('n2').value);
+            var oper = document.getElementById('operators').value;
+            if (oper === '+') {
+                document.getElementById('result').value = n1 + n2;
+            }
+
+            if (oper === '-') {
+                document.getElementById('result').value = n1 - n2;
+            }
+
+            if (oper === '/') {
+                document.getElementById('result').value = n1 / n2;
+            }
+
+            if (oper === 'X') {
+                document.getElementById('result').value = n1 * n2;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
