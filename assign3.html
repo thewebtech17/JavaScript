@@ -64,38 +64,34 @@
                 <option value="7">Div 7</option>
                 <option value="8">Div 8</option>
                 <option value="9">Div 9</option>
-                <option value="10">Div 10</option>
-                <option value="11">Div 11</option>
-                <option value="12">Div 12</option>
-
             </select>
             <button onclick="changeDivColor()">Submit</button>
-            </div>
-            <div class="lower">
-                <div id="div1" class="color-div"></div>
-                <div id="div2" class="color-div"></div>
-                <div id="div3" class="color-div"></div>
-                <div id="div4" class="color-div"></div>
-                <div id="div5" class="color-div"></div>
-                <div id="div6" class="color-div"></div>
-                <div id="div7" class="color-div"></div>
-                <div id="div8" class="color-div"></div>
-                <div id="div9" class="color-div"></div>
-                <div id="div10" class="color-div"></div>
-                <div id="div11" class="color-div"></div>
-                <div id="div12" class="color-div"></div>
-            </div>
         </div>
+        <div class="lower">
+            <div id="div1" class="color-div"></div>
+            <div id="div2" class="color-div"></div>
+            <div id="div3" class="color-div"></div>
+            <div id="div4" class="color-div"></div>
+            <div id="div5" class="color-div"></div>
+            <div id="div6" class="color-div"></div>
+            <div id="div7" class="color-div"></div>
+            <div id="div8" class="color-div"></div>
+            <div id="div9" class="color-div">*</div>
+        </div>
+    </div>
 
-        <script>
-            function changeDivColor() {
-                var color = document.getElementById('colorInput').value;
-                var divNumber = document.getElementById('divSelect').value;
+    <script>
+        function changeDivColor() {
+            var color = document.getElementById('colorInput').value;
+            var divNumber = document.getElementById('divSelect').value;
+            if (divNumber >= "1" && divNumber <= "8") {
                 var targetDiv = document.getElementById('div' + divNumber);
-                // var targetdiv = document.querySelector('#div' + divNumber)
                 targetDiv.style.backgroundColor = color;
+            } else  {
+                alert("You can select only up to 8");
             }
-        </script>
+        }
+    </script>
 </body>
 
 </html>
