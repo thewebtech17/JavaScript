@@ -15,9 +15,13 @@ let myUser = {
 // console.table(typeof myUser[mySym]);
 // console.log(typeof [mySym]) 
 
+
 //  => MOST IMPORTANT
 // console.log(typeof([mySym][0]))
+// console.table(typeof [mySym][0]);
+
 
 // when the interviwer says implement symbol in the object (MOST IMPORTANT)
 // mySym : "key-1" => this way is wrong accordingg this type of string but we want symbol
+
 
