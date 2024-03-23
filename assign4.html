@@ -1,62 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Character Count</title>
     <style>
-        body {
-            background: #3a7bd5;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #3a6073, #3a7bd5);
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-
-        #printchatbox {
-            color: rgb(3, 3, 3);
-            font-size: 2rem;
-            font-family: monospace;
-            text-transform: capitalize;
-        }
-
-        #chatinput {
-            font-size: 1.5rem;
-            font-family: system-ui;
-            text-transform: capitalize;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 20px;
-        }
-
-        .second {
-            width: 35%;
-            height: 60vh;
-            background-color: white;
-            border-radius: 20px;
-        }
         .main{
             display: flex;
-            justify-content: space-around;
-            text-align: center;
+            justify-content:space-evenly;
+            /* border: 2px solid red; */
+            height: 60vh;
         }
+        .total-length {
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            color: #000;
+            padding-top: 10px; 
+        }
+        #printchatbox{
+            width: 80%;
+            border: 2px solid black;
+            height: 60vh;
+            border-radius: 20px;
+        }
+        .second{
+            /* border: 2px solid black; */
+            width: 50%;
+        }
+        .lower{
+            /* border: 2px solid red; */
+            margin-top: 10vh;
+            text-align: center;
+            gap: 20px;
+        }
+
     </style>
 </head>
-
 <body>
     <div class="main">
         <textarea id="chatinput" cols="50" rows="15"></textarea>
         <div class="second">
             <div class='printchatbox' id='printchatbox'></div>
+            <div class="total-length" id="charCount">Total Characters: 0</div>
         </div>
+    </div>
+    <div class="lower">
+        <input type="color" id="textColor" placeholder="Text Color">
+        <input type="color" id="bgColor" placeholder="Background Color">
+        <button id="increaseSize">Increase Text Size</button>
+        <button id="decreaseSize">Decrease Text Size</button>
     </div>
     <script>
         var inputBox = document.getElementById('chatinput');
+        var printChatBox = document.getElementById('printchatbox');
+        var charCount = document.getElementById('charCount'); 
+        var textColor = document.getElementById('textColor');
+        var bgColor = document.getElementById('bgColor');
+        var increaseSizeBtn = document.getElementById('increaseSize');
+        var decreaseSizeBtn = document.getElementById('decreaseSize');
+
         inputBox.onkeyup = function () {
-            document.getElementById('printchatbox').innerHTML = inputBox.value;
+            printChatBox.innerHTML = inputBox.value;
+            charCount.textContent = "Total Characters: " + inputBox.value.length;
+        }
+
+        textColor.oninput = function () {
+            printChatBox.style.color = textColor.value;
+        }
+
+        bgColor.oninput = function () {
+            printChatBox.style.backgroundColor = bgColor.value;
+        }
+
+        var currentSize = 16; 
+
+        increaseSizeBtn.onclick = function () {
+            currentSize += 2;
+            printChatBox.style.fontSize = currentSize + 'px';
+        }
+
+        decreaseSizeBtn.onclick = function () {
+            currentSize = Math.max(currentSize - 2, 10); 
+            printChatBox.style.fontSize = currentSize + 'px';
         }
     </script>
 </body>
-
 </html>

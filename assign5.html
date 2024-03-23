@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+        }
+        .main {
+            /* border: 2px solid #ed4e4e; */
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #myForm {
+            /* border: 2px dashed black; */
+            width: 30%;
+            text-align: center;
+            background-color: rgb(243, 243, 245);
+            border-radius: 10px;
+            height: 60vh;
+            box-shadow: rgba(232,234,237) 1.95px 1.95px 2.6px;
+              }
+        #myForm input{
+            padding: 10px 20px;
+            margin-top:3vh;
+            margin-left: 5vw;
+            cursor: pointer;
+            border: none;
+            background-color: beige;
+            border-radius: 10px;
+        }
+       
+        #preview{
+            display: none;
+            /* background-color: gray; */
+            width: 30%;
+            transition: 0.5s;
+            text-align: center;
+        }
+        #submitBtn{
+            background-color: rgb(42, 210, 42);
+            color: white;
+            margin-top: 10vh;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        #submitBtn:hover{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form id="myForm">
+            <label for="Image">Image</label>
+            <input type="text" id="Imageurl" placeholder="Enter Image url"> <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Your Name"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter Your Email"><br>
+
+            <label for="course">Course:</label>
+            <input type="text" id="course" placeholder="Enter Your Course"><br>
+
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" placeholder="Enter Your Mobile"><br>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+
+        <div id="preview">
+            <img style="border-radius: 20%; width: 30%; margin-left: 5vw;" alt="Image" id="previewimage">
+            <p>Name: <span id="previewName"></span></p>
+            <p>Email: <span id="previewEmail"></span></p>
+            <p>Course: <span id="previewCourse"></span></p>
+            <p>Mobile No: <span id="previewMobile"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var course = document.getElementById('course').value;
+            var mobile = document.getElementById('mobile').value;
+            var imageurl = document.getElementById('Imageurl').value
+
+            document.getElementById('previewName').textContent = name;
+            document.getElementById('previewEmail').textContent = email;
+            document.getElementById('previewCourse').textContent = course;
+            document.getElementById('previewMobile').textContent = mobile;
+
+            var previewimage = document.getElementById('previewimage');
+            previewimage.src = imageurl;
+            previewimage.style.display = 'block';
+            document.getElementById('preview').style.display = 'block';
+            document.getElementById('myForm').style.display = 'none';
+
+
+        });
+    </script>
+
+</body>
+
+</html>
