@@ -19,6 +19,11 @@
             /* color:white; */
         }
 
+        html{
+
+            /* font-size: 20px; */
+        }
+
         .main {
             width: 50%;
             height: 80vh;
@@ -128,16 +133,18 @@
         let i =0;
         let myArray = ['17px','18px','20px','22px','24px','26px']
         function increasefontsize(){
-            head.style.fontSize = myArray[i++];
+            console.log(i)
+            head.style.fontSize = myArray[++i];
         }
         let mybtn = document.getElementById("+");
         mybtn.addEventListener("click",increasefontsize)
         // decreasing the size
         let fom = document.getElementById("content");
         let j =0;
-        let myArr = ['26px','24px','22px','20px','18px','17px']
+        // let myArr = ['26px','24px','22px','20px','18px','17px']
         function Decreasefontsize(){
-            fom.style.fontSize = myArr[j++];
+            console.log(i)
+            fom.style.fontSize = myArray[--i];
         }
         let mybt = document.getElementById("-");
         mybt.addEventListener("click",Decreasefontsize)
