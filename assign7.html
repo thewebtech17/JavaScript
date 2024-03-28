@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalt Clock</title>
+    <style>
+        body {
+            background: #F0C27B;
+            background: -webkit-linear-gradient(to right, #4B1248, #F0C27B);
+            background: linear-gradient(to right, #4B1248, #F0C27B);
+            
+        }
+
+        .clock {
+            /* background-color: white; */
+            width: 30%;
+            height: 15vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            margin-top: 30vh;
+        }
+
+        #hour {
+            /* background-color: #4B1248; */
+            width: 20%;
+            height: 15vh;
+            border-radius: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: aliceblue;
+        }
+
+        #minute {
+            /* background-color: #F0C27B; */
+            width: 20%;
+            height: 15vh;
+            border-radius: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: aliceblue;
+        }
+
+        #second {
+            /* background-color: aqua; */
+            width: 20%;
+            height: 15vh;
+            border-radius: 20%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: aliceblue;
+
+        }
+
+        span {
+            color: white;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div id="hour"></div>
+        <span>:</span>
+        <div id="minute"></div>
+        <span>:</span>
+        <div id="second"></div>
+    </div>
+
+    <script>
+        const hourElement = document.getElementById('hour');
+        const minuteElement = document.getElementById('minute');
+        const secondElement = document.getElementById('second');
+
+        const clock = setInterval(function time() {
+            const dateNow = new Date();
+            let hours = dateNow.getHours();
+            let minutes = dateNow.getMinutes();
+            let seconds = dateNow.getSeconds();
+
+            hours = hours.toString().padStart(2, "0");
+            minutes = minutes.toString().padStart(2, "0");
+            seconds = seconds.toString().padStart(2, "0");
+
+            hourElement.textContent = hours;
+            minuteElement.textContent = minutes;
+            secondElement.textContent = seconds;
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Inserting</title>
+    <style>
+        body {
+            background: #E0EAFC;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .frm {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 90vh;
+            margin: auto;
+        }
+
+        #myForm {
+            /* border: 2px dashed black; */
+            width: 30%;
+            text-align: center;
+            background-color: rgb(243, 243, 245);
+            border-radius: 10px;
+            height: 60vh;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #myForm input {
+            padding: 10px 20px;
+            margin-top: 3vh;
+            margin-left: 5vw;
+            cursor: pointer;
+            border: none;
+            background-color: beige;
+            border-radius: 10px;
+        }
+
+        #submitBtn {
+            background-color: rgb(32, 172, 32);
+            color: aliceblue;
+            margin-top: 8vh;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #submitBtn:hover {
+            background-color: green;
+        }
+
+        #dataTable {
+            background-color: rgb(243, 243, 245);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frm">
+        <form id="myForm">
+            <label for="sno">S.No</label>
+            <input type="number" id="Imageurl" placeholder="Enter S.No"> <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Your Name"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter Your Email"><br>
+
+            <label for="course">Course:</label>
+            <input type="text" id="course" placeholder="Enter Your Course"><br>
+
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" placeholder="Enter Your Mobile"><br>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+        <div class="table">
+            <table id="dataTable" border="2">
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Mobile</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', handleFormSubmit );
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            let s = document.getElementById('Imageurl').value;
+            document.getElementById("Imageurl").value = "";
+            document.getElementById("Imageurl").focus();
+            let n = document.getElementById('name').value;
+            document.getElementById("name").value = "";
+            let e = document.getElementById("email").value;
+            document.getElementById("email").value = "";
+            var data = {
+                sno: s,
+                name: n,
+                email:e,
+                course: document.getElementById('course').value,
+                mobile: document.getElementById('mobile').value
+            }
+        addRow(data); //  confuse about why this is here
+
+        }
+
+        function addRow(data) {
+            var table = document.getElementById('dataTable');
+            var newRow = table.insertRow(-1);
+            newRow.insertCell(0).textContent = data.sno;
+            newRow.insertCell(1).textContent = data.name;
+            newRow.insertCell(2).textContent = data.email;
+            newRow.insertCell(3).textContent = data.course;
+            newRow.insertCell(4).textContent = data.mobile;
+        }
+
+
+    </script>
+</body>
+
+</html>
